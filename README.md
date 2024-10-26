@@ -1,1 +1,1 @@
-# k-r-exercises
+# kr-exercises
