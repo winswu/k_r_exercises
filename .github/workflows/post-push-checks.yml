@@ -23,8 +23,9 @@ jobs:
 
       - name: Install buildifier
         run: |
-          go install github.com/bazelbuild/buildtools/buildifier@latest
-          export PATH=$PATH:$(go env GOPATH)/bin
+          wget https://github.com/bazelbuild/buildtools/releases/download/v7.3.1/buildifier-linux-amd64
+          mv buildifier-linux-amd64 buildifier
+          chmod +x buildifier
 
       - name: Run clang-format for .h and .c files
         run: |
