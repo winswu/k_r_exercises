@@ -1,0 +1,23 @@
+name: Post-push checks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Bazel
+        uses: philwo/setup-bazel@v1
+        with:
+          bazel-version: "latest"
+
+      - name: Run Bazel tests
+        run: |
+          bazel test //...
