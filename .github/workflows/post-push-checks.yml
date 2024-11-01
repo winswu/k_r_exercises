@@ -1,0 +1,15 @@
+name: Post-push Checks
+
+on: push
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Run Bazel tests
+        run: |
+          bazel test //... --test_output=errors
