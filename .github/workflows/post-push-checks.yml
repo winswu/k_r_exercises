@@ -12,4 +12,4 @@ jobs:
 
       - name: Run Bazel tests
         run: |
-          bazel test //...
+          bazel test //... --test_output=errors
