@@ -13,3 +13,25 @@ jobs:
       - name: Run Bazel tests
         run: |
           bazel test //... --test_output=errors
+
+  Check-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Run clang-format for .h and .c files
+        run: |
+          find . -name "*.h" -o -name "*.c" | xargs clang-format -i
+          git diff --exit-code || (echo "Code is not properly formatted (.h and .c files)." && exit 1)
+
+      - name: Run clang-format with Google style for .hpp ,.cc, and .cpp files
+        run: |
+          find . -name "*.hpp" -o -name "*.cc" -o -name "*.cpp" | xargs clang-format -i -style=Google
+          git diff --exit-code || (echo "Code is not properly formatted (.hpp, .cc, and .cpp files)." && exit 1)
+
+      - name: Run buildifier on Bazel files
+        run: |
+          buildifier -r .
+          git diff --exit-code || (echo "Bazel files are not properly formatted." && exit 1)
