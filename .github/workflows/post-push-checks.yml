@@ -39,5 +39,5 @@ jobs:
 
       - name: Run buildifier on Bazel files
         run: |
-          buildifier -r .
+          ./buildifier -r .
           git diff --exit-code || (echo "Bazel files are not properly formatted." && exit 1)
