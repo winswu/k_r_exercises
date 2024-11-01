@@ -21,6 +21,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4.2.2
 
+      - name: Install buildifier
+        run: |
+          go install github.com/bazelbuild/buildtools/buildifier@latest
+          export PATH=$PATH:$(go env GOPATH)/bin
+
       - name: Run clang-format for .h and .c files
         run: |
           find . -name "*.h" -o -name "*.c" | xargs clang-format -i
