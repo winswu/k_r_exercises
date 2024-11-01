@@ -1,4 +1,4 @@
-name: Post-push checks
+name: Post-push Checks
 
 on: push
 
@@ -9,11 +9,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-
-      - name: Set up Bazel
-        uses: philwo/setup-bazel@v1
-        with:
-          bazel-version: "latest"
 
       - name: Run Bazel tests
         run: |
