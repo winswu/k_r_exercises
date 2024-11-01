@@ -3,7 +3,7 @@ name: Post-push Checks
 on: push
 
 jobs:
-  test:
+  Test:
     runs-on: ubuntu-latest
 
     steps:
