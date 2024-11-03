@@ -1,15 +1,15 @@
 cc_library(
-    name = "lib_exercise_1_1_hello_world",
+    name = "lib",
     srcs = ["lib.c"],
     hdrs = ["lib.h"],
 )
 
 cc_test(
-    name = "test_exercise_1_1_hello_world",
+    name = "test",
     size = "small",
     srcs = ["test/test.cc"],
     deps = [
-        ":lib_exercise_1_1_hello_world",
+        ":lib",
         "@googletest//:gtest",
         "@googletest//:gtest_main",
     ],
