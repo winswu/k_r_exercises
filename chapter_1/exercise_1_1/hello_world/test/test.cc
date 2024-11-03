@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-#include "../solution/lib.h"
+#include "../lib.h"
 }
 
 TEST(Exercise_1_1, PrintfOutput) {
