@@ -2,7 +2,7 @@
 
 int exercise_1_2()
 {
-	printf("\hell\o, wor\ld\n");
+	printf("\hello\, wor\ld\n");
 
 	return 0;
 }
